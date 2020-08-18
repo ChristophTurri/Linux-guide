@@ -1,17 +1,17 @@
 Convert EndeavourOS XFCE offline edition to Arch Linux
 -----------
 Overview:
-1. Stage 1, Edit grub. 
-2. Stage 2, Delete the Endeavour packages
-3. Stage 3, Edit pacman.conf
-4. Stage 4, Delete pacman hooks
-5. Stage 5, Delete the sync database
-6. Stage 6, Edit mirrorlist files
-7. Stage 7, Edit release files.
-8. Stage 8, Edit LightDm settings
-9. Stage 9, Edit XFCE whisker menu 
+1. Edit grub. 
+2. Delete the Endeavour packages
+3. Edit pacman.conf
+4. Delete pacman hooks
+5. Delete the sync database
+6. Edit mirrorlist files
+7. Edit release files.
+8. Edit LightDm settings
+9. Edit XFCE whisker menu 
 
-Stage One, Grub.
+Step 1, Grub.
 ------------
 
 * Edit. /etc/default/grub file
@@ -27,17 +27,14 @@ GRUB_DISTRIBUTOR="Arch"
 
 GRUB_THEME=/boot/grub/themes/EndeavourOS/theme.txt
 
-* Update the Grub.
+* Update Grub.
 
 sudo grub-mkconfig -o /boot/grub/grub.cfg
 
-Stage 2, Delete the Endeavour packages
+Step 2, Delete all EndeavourOS packages
 -----------------
 
-* Make a backup. Of all Endeavour packages(FYI)
-pacman -Sl endeavouros | grep '\[installed' > ~/Desktop/Work/backup
-
-On my system 
+Possible packages (could be more): 
 ```sh
 endeavouros arc-x-icons-theme 2.1-3 [installed]
 endeavouros downgrade 6.2.5-1 [installed]
@@ -55,20 +52,20 @@ endeavouros welcome 2.4.42-1 [installed]
 endeavouros yay 9.4.6-2 [installed]
 ```
 
-* Install and/or select New themes and icons themes at this point to  prevent any potential issues from missing themes (optional)
+* Install and/or select New themes and icons themes at this point to  prevent any potential issues from missing themes
 
 * Delete the packages.
 
 pacman -Sl endeavouros | grep '\[installed' | cut -d' ' -f2 | xargs -o sudo pacman -R
 
 
-Stage 3, Edit pacman.conf
+Step 3, Edit pacman.conf
 ----------------------
 
 Removed the [endeavouros] section from /etc/pacman.conf
 
 
-Stage 4, Delete pacman hooks
+Step 4, Delete pacman hooks
 ----------------
 
 * Removed the two EOS-specific branding hooks in /etc/pacman.d/hooks
@@ -76,18 +73,18 @@ Stage 4, Delete pacman hooks
 sudo rm lsb-release.hook os-release.hook 
 
 
-Stage 5, Delete the sync database
+Step 5, Delete the sync database
 -----------------
 
 rm /var/lib/pacman/sync/endeavouros.db
 
-Stage 6, mirrorlist files
+Step 6, mirrorlist files
 ------------------
 
 * At etc/pacman.d , Remove the endeavour mirrorlist and replace with new mirrorlist(download new mirrolist and edit 
 As per arch wiki) or simply rename.
 
-Stage 7, Edit release files.
+Step 7, Edit release files.
 -----------------------
  
 * change "endeavouros" to "arch"  in files 2.
@@ -96,13 +93,13 @@ Stage 7, Edit release files.
 2. /usr/lib/os-release    ,  edit 
 
 
-Stage 8, LightDm 
+Step 8, LightDm 
 ------------------------------
 
 * LightDM GTK+ greeter settings tool remove "text=endeavourOS" in Panel tab.
  
 * In /etc/lightDM/lightdm-gtk-greeter.conf , change background setting
 
-Stage 9 , XFCE Whiskermenu
+Step 9 , XFCE Whiskermenu
 -------------------------
 * Edit /etc/skel/.config/xfce4/panel/whiskermenu-1.rc to remove referneces to endeavourOs
