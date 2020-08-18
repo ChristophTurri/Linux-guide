@@ -1,1 +1,1 @@
-# Arch Linux
+Different guides for Linux
