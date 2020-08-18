@@ -1,5 +1,5 @@
-Convert EndeavourOS Linux to Arch Linux 04-2020
-This was used on offline XFCE EndeavourOS edition
+Convert EndeavourOS Linux to Arch Linux
+Requierement: XFCE Offline edition
 -----------
 
 1. Stage 1, Edit grub. 
