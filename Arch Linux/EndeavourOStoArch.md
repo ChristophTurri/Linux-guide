@@ -98,6 +98,8 @@ Step 6, mirrorlist files
 * At etc/pacman.d , Remove the endeavour mirrorlist and replace with new mirrorlist(download new mirrolist and edit 
 As per arch wiki) or simply rename.
 
+Optinal, create a new mirrorlist with reflector
+
 Step 7, Edit release files.
 -----------------------
  
@@ -114,7 +116,25 @@ DISTRIB_DESCRIPTION=”Arch GNU/Linux”
 
 
 
-2. /usr/lib/os-release    ,  edit 
+2. /usr/lib/os-release
+
+```sh
+NAME=”Arch Linux”
+ID=arch
+PRETTY_NAME=”Arch Linux”
+ANSI_COLOR=”0;36"
+HOME_URL=”https://www.archlinux.org/"
+SUPPORT_URL=”https://bbs.archlinux.org/"
+BUG_REPORT_URL=”https://bugs.archlinux.org/"
+```
+
+3.  /etc/issue
+
+```sh
+Arch Linux \r (\l)
+```
+
+
 
 
 Step 8, LightDm 
