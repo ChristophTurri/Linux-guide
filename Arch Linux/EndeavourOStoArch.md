@@ -33,6 +33,8 @@ sudo grub-mkconfig -o /boot/grub/grub.cfg
 
 Step 2, Delete all EndeavourOS packages
 -----------------
+List all Endeavouros packages (installed and not installed):
+sudo pacman -Sl endeavouros
 
 Possible packages (could be more): 
 ```sh
@@ -52,11 +54,21 @@ endeavouros welcome 2.4.42-1 [installed]
 endeavouros yay 9.4.6-2 [installed]
 ```
 
-* Install and/or select New themes and icons themes at this point to  prevent any potential issues from missing themes
+* Install and/or select all Endeavouros themes and icons themes at this point to prevent any potential issues
 
-* Delete the packages.
+* Now delete the packages:
+List all packages:
+sudo pacman -Q 
 
-pacman -Sl endeavouros | grep '\[installed' | cut -d' ' -f2 | xargs -o sudo pacman -R
+List all packages not in a repo (for still installed endeavouros packages):
+sudo pacman -Qm
+
+List all packagegroups:
+sudo pacman -Sg <Paketgruppe>
+
+Now delete all Endeavouros packages with sudo pacman -R
+
+optional: reinstall mkinitcpio-openswap from the AUR!
 
 
 Step 3, Edit pacman.conf
@@ -69,6 +81,8 @@ Step 4, Delete pacman hooks
 ----------------
 
 * Removed the two EOS-specific branding hooks in /etc/pacman.d/hooks
+
+cd/etc/pacman.d/hooks
 
 sudo rm lsb-release.hook os-release.hook 
 
