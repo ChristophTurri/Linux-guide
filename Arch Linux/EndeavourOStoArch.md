@@ -101,9 +101,19 @@ As per arch wiki) or simply rename.
 Step 7, Edit release files.
 -----------------------
  
-* change "endeavouros" to "arch"  in files 2.
+* change the following release files
 
-1. /etc/lsb-release    , delete
+1. /etc/lsb-release
+
+```sh
+LSB_VERSION=1.4
+DISTRIB_ID=Arch
+DISTRIB_RELEASE=rolling
+DISTRIB_DESCRIPTION=”Arch GNU/Linux”
+```
+
+
+
 2. /usr/lib/os-release    ,  edit 
 
 
