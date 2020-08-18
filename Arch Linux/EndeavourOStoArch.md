@@ -1,4 +1,4 @@
-Convert EndeavourOS Linux to Arch Linux
+Convert EndeavourOS XFCE Offline to Arch Linux
 Requierement: XFCE Offline edition
 -----------
 
