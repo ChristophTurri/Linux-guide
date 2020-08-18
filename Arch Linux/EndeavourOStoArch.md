@@ -1,6 +1,6 @@
 Convert EndeavourOS XFCE offline edition to Arch Linux
 -----------
-
+Overview:
 1. Stage 1, Edit grub. 
 2. Stage 2, Delete the Endeavour packages
 3. Stage 3, Edit pacman.conf
